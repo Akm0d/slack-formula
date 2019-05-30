@@ -1,37 +1,12 @@
 .. _readme:
 
-template-formula
+slack-formula
 ================
 
-|img_travis| |img_sr|
-
-.. |img_travis| image:: https://travis-ci.com/saltstack-formulas/template-formula.svg?branch=master
-   :alt: Travis CI Build Status
-   :scale: 100%
-   :target: https://travis-ci.com/saltstack-formulas/template-formula
-.. |img_sr| image:: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
-   :alt: Semantic Release
-   :scale: 100%
-   :target: https://github.com/semantic-release/semantic-release
-
-A SaltStack formula that is empty. It has dummy content to help with a quick
-start on a new formula and it serves as a style guide.
+A SaltStack formula for slack. It will install slack, ensure that workspaces are joined, and will force a
+dark/light theme.
 
 .. contents:: **Table of Contents**
-
-General notes
--------------
-
-See the full `SaltStack Formulas installation and usage instructions
-<https://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html>`_.
-
-If you are interested in writing or contributing to formulas, please pay attention to the `Writing Formula Section
-<https://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html#writing-formulas>`_.
-
-If you want to use this formula, please pay attention to the ``FORMULA`` file and/or ``git tag``,
-which contains the currently released version. This formula is versioned according to `Semantic Versioning <http://semver.org/>`_.
-
-See `Formula Versioning Section <https://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html#versioning>`_ for more details.
 
 Contributing to this repo
 -------------------------
@@ -46,58 +21,71 @@ Available states
 .. contents::
    :local:
 
-``template``
+``slack``
 ^^^^^^^^^^^^
 
 *Meta-state (This is a state that includes other states)*.
 
-This installs the template package,
-manages the template configuration file and then
-starts the associated template service.
+This installs the slack package,
+manages the slack configuration file and then
+starts the associated slack service.
 
-``template.package``
+``slack.package``
 ^^^^^^^^^^^^^^^^^^^^
 
-This state will install the template package only.
+This state will install the slack package only.
 
-``template.config``
+``slack.config``
 ^^^^^^^^^^^^^^^^^^^
 
-This state will configure the template service and has a dependency on ``template.install``
+This state will configure the slack service and has a dependency on ``slack.install``
 via include list.
 
-``template.service``
+``slack.service``
 ^^^^^^^^^^^^^^^^^^^^
 
-This state will start the template service and has a dependency on ``template.config``
+This state will start the slack service and has a dependency on ``slack.config``
 via include list.
 
-``template.clean``
+``slack.clean``
 ^^^^^^^^^^^^^^^^^^
 
 *Meta-state (This is a state that includes other states)*.
 
-this state will undo everything performed in the ``template`` meta-state in reverse order, i.e.
+this state will undo everything performed in the ``slack`` meta-state in reverse order, i.e.
 stops the service,
 removes the configuration file and
 then uninstalls the package.
 
-``template.service.clean``
+``slack.service.clean``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This state will stop the template service and disable it at boot time.
+This state will stop the slack service and disable it at boot time.
 
-``template.config.clean``
+``slack.config.clean``
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This state will remove the configuration of the template service and has a
-dependency on ``template.service.clean`` via include list.
+This state will remove the configuration of the slack service and has a
+dependency on ``slack.service.clean`` via include list.
 
-``template.package.clean``
+``slack.package.clean``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This state will remove the template package and has a depency on
-``template.config.clean`` via include list.
+This state will remove the slack package and has a dependency on
+``slack.config.clean`` via include list.
+
+``slack.package.latest``
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This keep the slack package up to date and has a dependency on
+``slack.package.install`` via include list.
+
+``slack.theme``
+^^^^^^^^^^^^^^^^^^
+
+This state will set the slack theme to light or dark and will trigger on a change in
+``slack.package.install`` or ``slack.package.latest``
+
 
 Testing
 -------
@@ -107,8 +95,8 @@ Linux testing is done with ``kitchen-salt``.
 Requirements
 ^^^^^^^^^^^^
 
-* Ruby
-* Docker
+* Chocolatey
+* Apt
 
 .. code-block:: bash
 
@@ -122,7 +110,7 @@ e.g. ``debian-9-2019-2-py3``.
 ``bin/kitchen converge``
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Creates the docker instance and runs the ``template`` main state, ready for testing.
+Creates the docker instance and runs the ``slack`` main state, ready for testing.
 
 ``bin/kitchen verify``
 ^^^^^^^^^^^^^^^^^^^^^^

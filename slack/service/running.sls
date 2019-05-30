@@ -9,9 +9,13 @@
 include:
   - {{ sls_config_file }}
 
-template-service-running-service-running:
-  service.running:
-    - name: {{ template.service.name }}
-    - enable: True
+slack-service-running:
+  cmd.run:
+    - name: /usr/bin/slack %U
+    - runas: {{ user }}
+    - bg: True
+    - env:
+      - LD_PRELOAD: /usr/lib/libcurl.so.3
     - require:
-      - sls: {{ sls_config_file }}
+      - pkg: slack
+

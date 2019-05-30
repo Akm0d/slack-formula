@@ -11,30 +11,23 @@
 # osfamilymap: {}
 ---
 Debian:
-  pkg: template-debian
-  config: /etc/template.d/custom.conf
+  pkg: slack-desktop
+  config: /etc/slack.d/custom.conf
 
-RedHat:
-  pkg: template-redhat
-  config: /etc/template.conf
+RedHat: {}
 
-Suse:
-  pkg: template-suse
+Suse: {}
 
 Gentoo: {}
 
 Arch:
-  pkg: template-arch
-  service:
-    name: service-arch
+  pkg: slack
 
 Alpine: {}
 
-FreeBSD:
-  rootgroup: wheel
+FreeBSD: {}
 
-OpenBSD:
-  rootgroup: wheel
+OpenBSD: {}
 
 Solaris: {}
 

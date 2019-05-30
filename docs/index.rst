@@ -1,10 +1,10 @@
 .. _index:
 
-.. ``template-formula`` documentation master file.
+.. ``slack-formula`` documentation master file.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to template-formula's documentation!
+Welcome to slack-formula's documentation!
 ============================================
 
 .. toctree::
@@ -15,6 +15,3 @@ Welcome to template-formula's documentation!
 
    README <README>
    CONTRIBUTING
-   TOFS_pattern
-   AUTHORS
-   CHANGELOG

@@ -5,7 +5,7 @@
 {%- set tplroot = tpldir.split('/')[0] %}
 {%- from tplroot ~ "/map.jinja" import template with context %}
 
-template-service-clean-service-dead:
-  service.dead:
-    - name: {{ template.service.name }}
-    - enable: False
+slack-service-clean-service-dead:
+  ps.pkill:
+    - user: {{ user }}
+    - name: slack

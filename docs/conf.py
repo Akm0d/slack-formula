@@ -16,7 +16,7 @@ from recommonmark.parser import CommonMarkParser
 
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
-__author__     = 'Imran Iqbal'                                     # noqa: E221
+__author__     = 'Tyler Johnson'                                     # noqa: E221
 __copyright__  = 'Copyright (C) 2019, MYII'                        # noqa: E221
 __license__    = 'Apache-2.0'                                      # noqa: E221
 __version__    = 'latest'                                          # noqa: E221
@@ -25,7 +25,7 @@ __maintainer__ = 'Imran Iqbal'                                     # noqa: E221
 
 # -- Project information -----------------------------------------------------
 
-project = 'template-formula'
+project = 'slack-formula'
 copyright = __copyright__.replace('Copyright (C) ', '')  # noqa: A001
 author = __author__
 version = __version__
@@ -94,7 +94,7 @@ html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
 # Custom sidebar templates, must be a dictionary that maps document names
-# to template names.
+# to slack names.
 #
 # The default sidebars (for documents that don't match any pattern) are
 # defined by theme itself.  Builtin themes are using these templates by
@@ -107,7 +107,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'template-formula'
+htmlhelp_basename = 'slack-formula'
 
 
 # -- Options for Markdown output ---------------------------------------------
@@ -143,8 +143,8 @@ latex_elements = {
 latex_documents = [
     (
         'index',
-        'template-formula.tex',
-        u'template-formula Documentation',
+        'slack-formula.tex',
+        u'slack-formula Documentation',
         u'',
         'manual',
     ),

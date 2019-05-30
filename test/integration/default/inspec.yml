@@ -1,8 +1,8 @@
-name: template
+name: slack
 title: Template Formula
 maintainer: Your Name
 license: Apache-2.0
-summary: Verify that the template formula is setup and configured correctly
+summary: Verify that the slack formula is setup and configured correctly
 supports:
   - os-name: debian
   - os-name: ubuntu

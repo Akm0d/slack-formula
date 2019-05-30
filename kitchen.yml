@@ -78,19 +78,19 @@ provisioner:
   log_level: info
   salt_install: none
   require_chef: false
-  formula: template
+  formula: slack
   salt_copy_filter:
     - .kitchen
     - .git
   state_top:
     base:
       '*':
-        - template
+        - slack
   pillars:
     top.sls:
       base:
         '*':
-          - template
+          - slack
   pillars_from_files:
     template.sls: pillar.example
 
